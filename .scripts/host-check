@@ -1,0 +1,24 @@
+#!/bin/bash
+# List You Domain Here
+#DOMAINS="2daygeek.com linuxtechnews.com magesh.co.in"
+for domain in $@
+do
+  echo "================================================================="
+  echo -e "\e[1;31m${domain}\e[m"
+  echo "-----------------------------------------------------------------"
+  IP4=$(host -t A $domain | awk '{print $NF}' | grep -oP '(\d{1,3}\.){3}(\d{1,3}){1}')
+  IP6=$(host -t AAAA $domain | awk '{print $NF}' | grep -oP '(([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4})')
+  echo -e "\tIPv4:\e[1;35m ${IP4}\e[m\\tIPv6:\e[1;33m ${IP6}\e[m"
+  IP4www=$(host -t A www.${domain} | awk '{print $NF}' | grep -oP '(\d{1,3}\.){3}(\d{1,3}){1}')
+  IP6www=$(host -t AAAA www.${domain} | awk '{print $NF}' | grep -oP '(([0-9a-fA-F]{0,4}:){1,7}[0-9a-fA-F]{0,4})')
+  echo -e "www.\tIPv4:\e[2;35m ${IP4}\e[m\\tIPv6:\e[2;33m ${IP6}\e[m"
+ 
+  echo "-----------------------------------------------------------------"
+  host -t ns $domain
+  host -t txt $domain
+  echo "================================================================="
+  echo ""
+  echo ""
+ # host -t A www.${domain}
+ # host -t AAAA www.${domain}
+done

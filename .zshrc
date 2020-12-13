@@ -93,11 +93,12 @@ plugins=(
 	pipenv
 	rsync
 	nmap
-	nvm
 	ng
+	node
 	pep8
 	profiles
 	zsh-syntax-highlighting
+	nvm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -249,3 +250,5 @@ alias fans-noboost="isw -b off"
 alias fanspeed="isw -r auto"
 
 alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias rimraf="rm -rf "
+alias du1="du -hd 1 "
