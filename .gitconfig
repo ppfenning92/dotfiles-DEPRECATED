@@ -1,3 +1,6 @@
 [user]
-	email = ppfenning@schirra-it.de
+	email = patrick.pfenning.92@gmail.com
 	name = Patrick Pfenning
+
+[includeIf "gitdir:~/projects/sit/**"]
+	path = .gitconfig.sit
