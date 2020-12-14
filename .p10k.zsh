@@ -1356,13 +1356,13 @@
   typeset -g POWERLEVEL9K_IP_CONTENT_EXPANSION='${P9K_IP_RX_RATE:+%70F⇣$P9K_IP_RX_RATE }${P9K_IP_TX_RATE:+%215F⇡$P9K_IP_TX_RATE }%38F$P9K_IP_IP'
   # Show information for the first network interface whose name matches this regular expression.
   # Run `ifconfig` or `ip -4 a show` to see the names of all network interfaces.
-  typeset -g POWERLEVEL9K_IP_INTERFACE=$(nmcli device status | grep -F connected | grep -Fv disconnected | head -1 | awk '{print $1}')
+  typeset -g POWERLEVEL9K_IP_INTERFACE=$(nmcli device status > /dev/null 2>&1; if (($? > 0)); then echo 0.0.0.0; else nmcli device status | grep -F connected | grep -Fv disconnected | head -1 | awk '{print $1}'; fi)
   #typeset -g POWERLEVEL9K_IP_INTERFACE='net_iface'
   # Custom icon.
   #typeset -g POWERLEVEL9K_IP_VISUAL_IDENTIFIER_EXPANSION=''
   #''
-  typeset -g POWERLEVEL9K_IP_VISUAL_IDENTIFIER_EXPANSION=$(net_iface)
-  #typeset -g POWERLEVEL9K_IP_VISUAL_IDENTIFIER_EXPANSION=$'\ufbf1'
+  #typeset -g POWERLEVEL9K_IP_VISUAL_IDENTIFIER_EXPANSION=$(net_iface)
+  typeset -g POWERLEVEL9K_IP_VISUAL_IDENTIFIER_EXPANSION=$'\ufbf1'
 
   #########################[ proxy: system-wide http/https/ftp proxy ]##########################
   # Proxy color.
@@ -1436,6 +1436,10 @@
     p10k segment -f 208 -i '⭐' -t 'hello, %n'
   }
   function prompt_my_cpu_temp() {
+	sensors > /dev/null 2>&1
+	if (($? > 0)); then
+		return
+	fi
         temp_count=$(sensors -u coretemp-isa-0000 | grep "temp[2|3|4|5|6|7]_inp" | awk '{ print $2 }' | wc -l)
 	temp_total=0
         for t in $(sensors -u coretemp-isa-0000 | grep "temp[2|3|4|5|6|7]_inp" | awk '{ print $2 }')

@@ -98,6 +98,7 @@ plugins=(
 	pep8
 	profiles
 	zsh-syntax-highlighting
+	zsh-autosuggestions
 	nvm
 )
 
