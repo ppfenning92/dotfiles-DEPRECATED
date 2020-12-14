@@ -2,3 +2,6 @@
 !README.md
 !.gitignore
 !.gitconfig*
+!./projects/.gitkeep
+!./projects/private/.gitkeep
+!./projects/sit/.gitkeep
