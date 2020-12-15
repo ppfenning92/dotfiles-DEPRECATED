@@ -7,10 +7,21 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+#eval $(/bin/brew shellenv)
+#eval $(/bin/brew shellenv)
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 # Path to your oh-my-zsh installation.
 export ZSH="/home/p/.oh-my-zsh"
 
+export HISTCONTROL=ignoreboth
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -253,3 +264,8 @@ alias fanspeed="isw -r auto"
 alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias rimraf="rm -rf "
 alias du1="du -hd 1 "
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
+alias mv="mv -i"
+alias rm="rm -i"
+
