@@ -6,3 +6,4 @@
 !./projects/private/.gitkeep
 !./projects/sit/.gitkeep
 !.zprofile
+!dotfiles.code-workspace
