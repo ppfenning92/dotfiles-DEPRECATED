@@ -1,6 +1,5 @@
 #!/bin/bash
-# List You Domain Here
-#DOMAINS="2daygeek.com linuxtechnews.com magesh.co.in"
+
 for domain in $@
 do
   echo "================================================================="

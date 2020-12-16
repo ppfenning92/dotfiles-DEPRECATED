@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# set -e
+
+WORK_DIR=/tmp/init
+
+mkdir -p ${WORK_DIR}
+
+function updateAndUpgrade() {
+    echo "Updating ...."
+    apt update -q && apt upgrade -y && apt dist-upgrade
+    echo "Update and upgrade successfull. System is now up-to-date"
+}
+
+function checkLastCMD() {
+    if (($? == 0)); then
+        echo 'completed'
+    else
+        echo 'failed'
+    fi
+}
+
+function install() {
+    apt install $1 >  /dev/null 2>&1
+    echo "${1} install $(checkLastCMD)"
+}
+
+function installEssentials() {
+    install "tree"
+    install "git"
+    install "curl"
+    install "build-essentials"
+    install "net-tools"
+    install "zsh"
+    install "htop"
+    install "vim"
+    install "xclip"
+    install "neofetch"
+}
+
+
+function installOhMyZSH () {
+    apt install zsh
+    su - testuser1 -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+}
+
+function installExa() {
+
+    apt install exa > /dev/null 2>&1
+    if (($? > 0 )); then
+        v = $(getLatestVersionFromGithub "https://github.com/ogham/exa/releases/latest")
+        https://github.com/ogham/exa/
+        wget https://github.com/ogham/exa/releases/download/v${v}/exa-linux-x86_64-${v}.zip -O ${WORK_DIR}/exa.zip
+        unzip ${WORK_DIR}/exa.zip -d ${WORK_DIR}/exa 
+        cp ${WORK_DIR}/exa-linux-x86_64 
+        echo "exa install successfull (source)"
+
+    else
+        echo "exa install successfull (apt)"
+    fi
+}
+
+
+function getLatestVersionFromGithub() {
+    curl -Ls -o /dev/null -w %{url_effective} ${1} | awk -F'/' '{print $NF}' | tr -d 'v'
+}
+
+installExa
+#echo $(getLatestVersionFromGithub "https://github.com/nvm-sh/nvm/releases/latest")

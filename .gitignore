@@ -1,4 +1,4 @@
-*
+/*
 !README.md
 !.gitignore
 !.gitconfig*
@@ -7,6 +7,6 @@
 !./projects/sit/.gitkeep
 !.zprofile
 !dotfiles.code-workspace
-!./.config/htop/htoprc
-!./.config/neofetch/config.conf
-!.scripts/
+!\./.config/htop/*
+!\.config/neofetch/*
+!\.scripts
