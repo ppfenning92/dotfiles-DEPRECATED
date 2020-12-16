@@ -9,4 +9,4 @@
 !dotfiles.code-workspace
 !./.config/htop/htoprc
 !./.config/neofetch/config.conf
-!.scripts
+!.scripts/

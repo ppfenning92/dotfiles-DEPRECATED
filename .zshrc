@@ -269,3 +269,4 @@ alias grep="grep --color=auto"
 alias mv="mv -i"
 alias rm="rm -i"
 
+[ -x "$(command -v neofetch)" ] && neofetch || echo ''
