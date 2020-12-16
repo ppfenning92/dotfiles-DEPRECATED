@@ -10,3 +10,4 @@
 !\./.config/htop/*
 !\.config/neofetch/*
 !\.scripts
+!\.vim
