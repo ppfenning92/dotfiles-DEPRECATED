@@ -35,7 +35,14 @@ function installEssentials() {
     install "htop"
     install "vim"
     install "xclip"
+    install "xcopy"
     install "neofetch"
+    install "sl"
+    install "lolcat"
+    install "cowsay"
+    install "figlet"
+    install "unzip"
+    install "php-cli"
 }
 
 
@@ -65,5 +72,7 @@ function getLatestVersionFromGithub() {
     curl -Ls -o /dev/null -w %{url_effective} ${1} | awk -F'/' '{print $NF}' | tr -d 'v'
 }
 
+
 installExa
+installEssentials
 #echo $(getLatestVersionFromGithub "https://github.com/nvm-sh/nvm/releases/latest")
