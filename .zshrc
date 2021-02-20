@@ -29,6 +29,7 @@ export HISTCONTROL=ignoreboth
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+export PATH="$HOME/.pyenv/bin:$PATH"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -101,7 +102,7 @@ plugins=(
 	web-search
 	composer
 	docker
-	pipenv
+	#pipenv
 	rsync
 	nmap
 	ng
@@ -111,6 +112,7 @@ plugins=(
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	nvm
+        zsh-pyenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -268,5 +270,12 @@ alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias mv="mv -i"
 alias rm="rm -i"
+
+
+
+
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 #[ -x "$(command -v neofetch)" ] && neofetch || echo ''
