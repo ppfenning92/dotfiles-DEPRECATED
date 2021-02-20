@@ -43,6 +43,8 @@ function installEssentials() {
     install "figlet"
     install "unzip"
     install "php-cli"
+    install "openvpn"
+    install "libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl"
 }
 
 
@@ -72,6 +74,16 @@ function getLatestVersionFromGithub() {
     curl -Ls -o /dev/null -w %{url_effective} ${1} | awk -F'/' '{print $NF}' | tr -d 'v'
 }
 
+<<<<<<< HEAD
+=======
 #installExa
+>>>>>>> 09e8fa46de8cf8fd69115fb120a7e4952168651f
 installEssentials
+installOhMyZSH
+installExa
+
+
 #echo $(getLatestVersionFromGithub "https://github.com/nvm-sh/nvm/releases/latest")
+
+### PYENV 
+#sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
