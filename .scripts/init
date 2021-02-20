@@ -50,7 +50,7 @@ function installEssentials() {
 
 function installOhMyZSH () {
     apt install zsh
-    su - testuser1 -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    su - p -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
 function installExa() {
@@ -75,7 +75,7 @@ function getLatestVersionFromGithub() {
 }
 
 installEssentials
-installOhMyZSH
+#installOhMyZSH
 installExa
 
 
