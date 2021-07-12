@@ -50,7 +50,7 @@ function installEssentials() {
 
 function installOhMyZSH () {
     apt install zsh
-    su - testuser1 -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    su - p -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
 function installExa() {
@@ -75,7 +75,11 @@ function getLatestVersionFromGithub() {
 }
 
 installEssentials
-installOhMyZSH
+#installOhMyZSH
 installExa
 
 
+#echo $(getLatestVersionFromGithub "https://github.com/nvm-sh/nvm/releases/latest")
+
+### PYENV 
+#sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
