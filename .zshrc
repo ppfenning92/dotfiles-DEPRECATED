@@ -277,5 +277,5 @@ alias ls=exa
 
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
-
+ [[ ! -f ~/.scripts/functions.zsh ]] || source ~/.scripts/functions.zsh
 #[ -x "$(command -v neofetch)" ] && neofetch || echo ''
