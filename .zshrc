@@ -30,6 +30,8 @@ export HISTCONTROL=ignoreboth
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$HOME/.scripts:$PATH"
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -95,24 +97,21 @@ plugins=(
 	jsontools
 	python
 	sudo
-	symfony
-	symfony2
 	systemd
 	wd
 	web-search
-	composer
 	docker
 	#pipenv
 	rsync
 	nmap
-	ng
+	#ng
 	node
 	pep8
 	profiles
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	nvm
-        zsh-pyenv
+        #zsh-pyenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -241,6 +240,7 @@ alias mdh-upgrade='cd /home/p/code/MDH/Upgrade'
 alias koe-tds-app='cd /home/p/code/koemmerling/tds-app'
 alias dpkg-list="dpkg -l | grep ^ii | awk '{print $2}'"
 alias gcp='git commit -p'
+alias gpt='git push origin --tags'
 alias laht='ls -lAhiFtc'
 alias lah='ls -lAh'
 alias cplast="history | cut -c 8- | tail -1 | copy"
@@ -250,18 +250,18 @@ alias vielpfalz="cd ~/code/vielpfalz/"
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias please="sudo"
 
-alias recom+="cd ~/code/RECOM/extranet-mean/"
-alias anabin+="cd ~/code/KMK/anabin-mean/"
-alias hackerman="chicken . && yolo && gp"
-alias host-check="~/.scripts/host-check"
+#alias recom+="cd ~/code/RECOM/extranet-mean/"
+#alias anabin+="cd ~/code/KMK/anabin-mean/"
+#alias hackerman="chicken . && yolo && gp"
+#alias host-check="~/.scripts/host-check"
 
-alias fanconfig="vim /etc/isw.conf"
-alias fans-basic="isw -w basic"
-alias fans-auto="isw -w auto"
-alias fans-advanced="isw -w advanced"
-alias fans-boost="isw -b on"
-alias fans-noboost="isw -b off"
-alias fanspeed="isw -r auto"
+#alias fanconfig="vim /etc/isw.conf"
+#alias fans-basic="isw -w basic"
+#alias fans-auto="isw -w auto"
+#alias fans-advanced="isw -w advanced"
+#alias fans-boost="isw -b on"
+#alias fans-noboost="isw -b off"
+#alias fanspeed="isw -r auto"
 
 alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias rimraf="rm -rf "
@@ -273,9 +273,9 @@ alias rm="rm -i"
 
 
 
+alias ls=exa
 
-
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+ [[ ! -f ~/.scripts/functions.zsh ]] || source ~/.scripts/functions.zsh
 #[ -x "$(command -v neofetch)" ] && neofetch || echo ''
