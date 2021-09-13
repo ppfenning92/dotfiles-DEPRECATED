@@ -112,6 +112,7 @@ plugins=(
 	zsh-autosuggestions
 	nvm
         #zsh-pyenv
+        wakatime
 )
 
 source $ZSH/oh-my-zsh.sh
