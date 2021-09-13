@@ -93,7 +93,7 @@ export PATH="$HOME/.scripts:$PATH"
 plugins=(
 	git
 	dotenv
-	lol
+#	lol
 	jsontools
 	python
 	sudo
