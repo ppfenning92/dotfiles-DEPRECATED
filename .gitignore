@@ -11,3 +11,4 @@
 !\.config/neofetch/*
 !\.scripts
 !\.vim
+!\.SpaceVim.d
