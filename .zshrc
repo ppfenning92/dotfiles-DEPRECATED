@@ -80,7 +80,7 @@ export PATH="$HOME/.scripts:$PATH"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="%d%m%Y %H:%M:%S"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -101,8 +101,9 @@ plugins=(
 	wd
 	web-search
 	docker
-	#pipenv
+  #pipenv
 	rsync
+  virtualenv
 	nmap
 	#ng
 	node
@@ -111,8 +112,8 @@ plugins=(
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	nvm
-        #zsh-pyenv
-        wakatime
+ # zsh-pyenv
+  wakatime
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -141,78 +142,6 @@ source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 
 # functions
-function calc() {
-	echo "$@" | bc -l
-}
-
-function add-ssh-config() {
-
-  while getopts a:h:p:u: opt; do
-    case $opt in
-      a)
-        ALIAS=$OPTARG
-        ;;
-      h)
-        HOST=$OPTARG
-        ;;
-      p)
-        PORT=$OPTARG
-        ;;
-      u)
-        USER=$OPTARG
-        ;;
-      :)
-        echo "Option -$OPTARG requires an argument." >&2
-        exit 1
-        ;;
-      \?)
-        echo "Invalid option: -$OPTARG"
-        exit 1
-        ;;
-    esac
-  done
-
-  if [[ ! -v ALIAS ]]; then
-    echo "alias required, -a "
-    exit 2
-  fi;
-  if [[ ! -v HOST ]]; then
-    echo "hostname required, -h "
-    exit 2
-  fi;
-  if [[ ! -v PORT ]]; then
-    echo "port required, -p "
-    exit 2
-  fi;
-  if [[ ! -v USER ]]; then
-    echo "username required, -u "
-    exit 2
-  fi;
-
-  echo -e ""
-  echo -e "\tAdding Config to ~/.ssh/config:"
-  echo -e "\t###############################"
-  echo -e "\tHost: ${ALIAS}"
-  echo -e "\t\tHostName: ${HOST}"
-  echo -e "\t\Port: ${PORT}"
-  echo -e "\t\User: ${USER}"
-  echo -e "\t###############################"
-
-  read -r -p "Are you sure? [y/N] " response
-  if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
-  then
-    cat > ~/test.txt <EOF
-    Host ${ALIAS}
-        HostName ${HOST}
-        Port ${PORT}
-        User ${USER}
-    EOF
-  else
-    echo "canceled..."
-    exit 0
-  fi
-
-}
 
 function net_iface() {
 	local adapter=$(nmcli device status | grep -F connected | grep -Fv disconnected | head -1 | awk '{print $2}')
@@ -243,26 +172,13 @@ alias dpkg-list="dpkg -l | grep ^ii | awk '{print $2}'"
 alias gcp='git commit -p'
 alias gpt='git push origin --tags'
 alias laht='ls -lAhiFtc'
-alias lah='ls -lAh'
+alias lah='ls -lah'
 alias cplast="history | cut -c 8- | tail -1 | copy"
-alias zshrc="vim ~/.zshrc"
-alias vielpfalz="cd ~/code/vielpfalz/"
+alias edit-zshrc="vim ~/.zshrc"
 
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias please="sudo"
 
-#alias recom+="cd ~/code/RECOM/extranet-mean/"
-#alias anabin+="cd ~/code/KMK/anabin-mean/"
-#alias hackerman="chicken . && yolo && gp"
-#alias host-check="~/.scripts/host-check"
-
-#alias fanconfig="vim /etc/isw.conf"
-#alias fans-basic="isw -w basic"
-#alias fans-auto="isw -w auto"
-#alias fans-advanced="isw -w advanced"
-#alias fans-boost="isw -b on"
-#alias fans-noboost="isw -b off"
-#alias fanspeed="isw -r auto"
 
 alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias rimraf="rm -rf "
@@ -276,7 +192,54 @@ alias rm="rm -i"
 
 alias ls=exa
 
+# Get latest container ID
+alias dl="docker ps -l -q"
+# Get container process
+alias dps="docker ps"
+# Get process included stop container
+alias dpa="docker ps -a"
+# Get images
+alias di="docker images"
+# Get container IP
+alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+# Run deamonized container, e.g., $dkd base /bin/echo hello
+alias dkd="docker run -d -P"
+# Run interactive container, e.g., $dki base /bin/bash
+alias dki="docker run -i -t -P"
+# Execute interactive container, e.g., $dex base /bin/bash
+alias dex="docker exec -i -t"
+# Stop all containers
+dstop() { docker stop $(docker ps -a -q); }
+# Remove all containers
+drm() { docker rm $(docker ps -a -q); }
+# Stop and Remove all containers
+alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+# Remove all images
+dri() { docker rmi $(docker images -q); }
+# Dockerfile build, e.g., $dbu tcnksm/test 
+dbu() { docker build -t=$1 .; }
+# Show all alias related docker
+dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
+# Bash into running container
+dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
+
+
+export AWS_SHARED_CREDENTIALS_FILE=~/.aws/credentials
+export AWS_CONFIG_FILE=~/.aws/configi
+
+
+export DENO_INSTALL="/home/p/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
  [[ ! -f ~/.scripts/functions.zsh ]] || source ~/.scripts/functions.zsh
 #[ -x "$(command -v neofetch)" ] && neofetch || echo ''
+
+
+
+fpath+=(~/.config/hcloud/completion/zsh)
+#  ... anything else that needs to be done before compinit
+autoload -Uz compinit; compinit
+# ...
+#
+#
