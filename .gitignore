@@ -6,9 +6,11 @@
 !./projects/private/.gitkeep
 !./projects/sit/.gitkeep
 !.zprofile
-!dotfiles.code-workspace
 !\./.config/htop/*
 !\.config/neofetch/*
-!\.scripts
+!\.scripts/host-check
+!\.scripts/incV
 !\.vim
 !\.SpaceVim.d
+!.bash_aliases
+!.git_aliases
