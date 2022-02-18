@@ -167,31 +167,17 @@ alias ppub='cat ~/.ssh/id_rsa.pub'
 alias copy='xclip -sel clip'
 alias cpub='ppub | copy'
 alias sit='cd /home/p/code'
-alias mdh-upgrade='cd /home/p/code/MDH/Upgrade'
-alias koe-tds-app='cd /home/p/code/koemmerling/tds-app'
 alias dpkg-list="dpkg -l | grep ^ii | awk '{print $2}'"
 alias gcp='git commit -p'
 alias gpt='git push origin --tags'
-alias laht='ls -lAhiFtc'
-alias lah='ls -lah'
 alias cplast="history | cut -c 8- | tail -1 | copy"
-alias edit-zshrc="vim ~/.zshrc"
 
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias please="sudo"
 
 
-alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias rimraf="rm -rf "
 alias du1="du -hd 1 "
-alias ls="ls --color=auto"
-alias grep="grep --color=auto"
-alias mv="mv -i"
-alias rm="rm -i"
-
-
-
-alias ls=exa
 
 # Get latest container ID
 alias dl="docker ps -l -q"
@@ -225,8 +211,12 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
 
+source $HOME/.aliases
+source $HOME/.bash_aliases
+source $HOME/.git_aliases
+
 export AWS_SHARED_CREDENTIALS_FILE=~/.aws/credentials
-export AWS_CONFIG_FILE=~/.aws/configi
+export AWS_CONFIG_FILE=~/.aws/config
 
 
 export DENO_INSTALL="/home/p/.deno"
