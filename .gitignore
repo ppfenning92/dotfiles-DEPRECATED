@@ -17,3 +17,5 @@
 !\.SpaceVim.d
 !.bash_aliases
 !.git_aliases
+
+!.scripts/init.sh
