@@ -211,9 +211,9 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
 
-[ ! -f $HOME/.aliases ]; || source $HOME/.aliases
-[ ! -f $HOME/.bash_aliases ]; || source $HOME/.bash_aliases
-[ ! -f $HOME/.git_aliases ]; || source $HOME/.git_aliases
+[ ! -f $HOME/.aliases ] || source $HOME/.aliases
+[ ! -f $HOME/.bash_aliases ] || source $HOME/.bash_aliases
+[ ! -f $HOME/.git_aliases ] || source $HOME/.git_aliases
 
 export AWS_SHARED_CREDENTIALS_FILE=$HOME/.aws/credentials
 export AWS_CONFIG_FILE=$HOME/.aws/config
