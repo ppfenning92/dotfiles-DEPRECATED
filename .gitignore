@@ -9,7 +9,9 @@
 !.zprofile
 !\./.config/htop/*
 !\.config/neofetch/*
+!\.config/starship.toml
 !\.scripts/host-check
+!\.scripts/init.sh
 !\.scripts/incV
 !\.vim
 !\.SpaceVim.d
