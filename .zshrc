@@ -101,6 +101,7 @@ plugins=(
 	wd
 	web-search
 	docker
+	docker-compose
   #pipenv
 	rsync
   virtualenv
