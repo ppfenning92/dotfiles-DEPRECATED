@@ -19,7 +19,7 @@ fi
 #eval $(/bin/brew shellenv)
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 # Path to your oh-my-zsh installation.
-export ZSH="/home/p/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 export HISTCONTROL=ignoreboth
 # Set name of the theme to load --- if set to "random", it will
@@ -117,8 +117,8 @@ plugins=(
   wakatime
 )
 
-source $ZSH/oh-my-zsh.sh
-source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme
+[ ! -f $ZSH/oh-my-zsh.sh ] || source $ZSH/oh-my-zsh.sh
+[ ! -f $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme ] || source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
