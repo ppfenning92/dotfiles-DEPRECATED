@@ -241,7 +241,7 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 fpath+=(~/.config/hcloud/completion/zsh)
 fpath+=(~/.zsh/completion)
 #  ... anything else that needs to be done before compinit
-autoload -Uz compinit; compinit
+autoload -Uz compinit; compinit -i
 # ...
 #
 #
