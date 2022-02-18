@@ -4,3 +4,6 @@
 
 [includeIf "gitdir:~/projects/sit/**"]
 	path = .gitconfig.sit
+
+[includeIf "gitdir:~/projects/ottonova/**"]
+	path = .gitconfig.ottonova

@@ -80,10 +80,10 @@ alias _='sudo '
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
+alias md="mkdir -vp"
 
 alias py="python"
 alias js="node"
-alias md="mkdir -vp"
 
 alias pygrep='grep -nr --include="*.py"'
 alias jsgrep='grep -nr --include="*.(js|ts|jsx|tsx)"'

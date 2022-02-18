@@ -3,8 +3,9 @@
 !.gitignore
 !.gitconfig*
 !./projects/.gitkeep
-!./projects/private/.gitkeep
 !./projects/sit/.gitkeep
+!./projects/private/.gitkeep
+!./projects/ottonova/.gitkeep
 !.zprofile
 !\./.config/htop/*
 !\.config/neofetch/*
