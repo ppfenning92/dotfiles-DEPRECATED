@@ -157,7 +157,7 @@ function net_iface() {
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f $HOME/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #  aliases
 alias zshconfig="vim ~/.zshrc"
@@ -211,25 +211,25 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
 
-source $HOME/.aliases
-source $HOME/.bash_aliases
-source $HOME/.git_aliases
+[ ! -f $HOME/.aliases ]; || source $HOME/.aliases
+[ ! -f $HOME/.bash_aliases ]; || source $HOME/.bash_aliases
+[ ! -f $HOME/.git_aliases ]; || source $HOME/.git_aliases
 
-export AWS_SHARED_CREDENTIALS_FILE=~/.aws/credentials
-export AWS_CONFIG_FILE=~/.aws/config
+export AWS_SHARED_CREDENTIALS_FILE=$HOME/.aws/credentials
+export AWS_CONFIG_FILE=$HOME/.aws/config
 
 
 export DENO_INSTALL="/home/p/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
- [[ ! -f ~/.scripts/functions.zsh ]] || source ~/.scripts/functions.zsh
+ [[ ! -f $HOME/.scripts/functions.zsh ]] || source $HOME/.scripts/functions.zsh
 #[ -x "$(command -v neofetch)" ] && neofetch || echo ''
 
 
 
-fpath+=(~/.config/hcloud/completion/zsh)
-fpath+=(~/.zsh/completion)
+fpath+=($HOME/.config/hcloud/completion/zsh)
+fpath+=($HOME/.zsh/completion)
 #  ... anything else that needs to be done before compinit
 autoload -Uz compinit; compinit -i
 # ...
