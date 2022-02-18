@@ -11,7 +11,10 @@ else
   echo "exa is not installed"
   alias ll="ls -lAF"
 fi
-
+alias sl="ls"
+alias sls="ls"
+alias sl-="ls"
+alias ls-="ls"
 
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
