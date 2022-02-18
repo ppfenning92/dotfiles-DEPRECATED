@@ -18,7 +18,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 fi
 
-alias pygrep='grep -nr --include="*.py"'
+
 
 if [ -x "$(command -v nmap)" ]; then
   alias nmap_open_ports="nmap --open"
@@ -62,5 +62,13 @@ alias mv="mv -i"
 
 alias py="python"
 alias js="node"
-alias md="mkdir -p"
+alias md="mkdir -vp"
+
+alias pygrep='grep -nr --include="*.py"'
+alias jsgrep='grep -nr --include="*.(js|ts|jsx|tsx)"'
+alias csssgrep='grep -nr --include="*.(css|less|scss|sass)"'
+alias phpgrep='grep -nr --include="*.php"'
+alias mdgrep='grep -nr --include="*.md"'
+alias htmlgrep='grep -nr --include="*.html"'
+
 
