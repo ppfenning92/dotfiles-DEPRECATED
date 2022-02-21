@@ -52,7 +52,7 @@ npm i -g tldr sass @nestjs/cli @angular/cli npm-check-updates typescript license
 echo "nvm installed"
 
 echo "cleanup..."
-apt autoremove
+sudo apt autoremove
 echo "cleanup done"
 
 
