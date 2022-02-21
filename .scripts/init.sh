@@ -98,7 +98,7 @@ $HOME/.cargo/bin/cargo install bandwidth \
     ytop \
     sd \
     procs \
-    tealdear \
+    tealdeer \
     ripgrep \
     eva \
     jql
