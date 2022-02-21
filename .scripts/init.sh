@@ -84,6 +84,7 @@ echo "install 1password cli"
 curl https://cache.agilebits.com/dist/1P/op/pkg/v1.12.4/op_linux_amd64_v1.12.4.zip -o op.zip
 mkdir -vp /tmp/op && unzip op.zip -d /tmp/op
 mkdir -vp $HOME/.local/bin/ && mv /tmp/op/op $HOME/.local/bin/
+rm -rf /tmp/op
 echo "1password cli installed"
 
 
