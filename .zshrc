@@ -83,6 +83,9 @@ alias please="sudo"
 alias rimraf="rm -rf "
 alias du1="du -hd 1 "
 
+alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+
 [ ! -f $HOME/.aliases ] || source $HOME/.aliases
 [ ! -f $HOME/.bash_aliases ] || source $HOME/.config/bash_aliases
 [ ! -f $HOME/.git_aliases ] || source $HOME/.config/git_aliases
