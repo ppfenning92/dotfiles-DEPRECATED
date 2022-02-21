@@ -1,4 +1,4 @@
-
+*
 !README.md
 !.gitignore
 !.gitconfig*
@@ -18,5 +18,5 @@
 !.config/bash_aliases
 !.config/git_aliases
 !.config/docker_aliases
-
+!.nvm/default-packages
 !.scripts/init.sh
