@@ -17,7 +17,7 @@ if [ -x "$(command -v batcat)" ]; then
     alias catpage="batcat"
 fi
 
-if [ -x "$(command -v du-dust)" ]; then
+if [ -x "$(command -v dust)" ]; then
     alias du="dust"
 fi
 
