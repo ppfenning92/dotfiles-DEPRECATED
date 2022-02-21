@@ -87,9 +87,9 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 
 [ ! -f $HOME/.aliases ] || source $HOME/.aliases
-[ ! -f $HOME/.bash_aliases ] || source $HOME/.config/bash_aliases
-[ ! -f $HOME/.git_aliases ] || source $HOME/.config/git_aliases
-[ ! -f $HOME/.docker_aliases ] || source $HOME/.config/docker_aliases
+[ ! -f $HOME/.config/aliasses/bash_aliases ] || source $HOME/.config/aliasses/bash_aliases
+[ ! -f $HOME/.config/aliasses/git_aliases ] || source $HOME/.config/aliasses/git_aliases
+[ ! -f $HOME/.config/aliasses/docker_aliases ] || source $HOME/.config/aliasses/docker_aliases
 
 export AWS_SHARED_CREDENTIALS_FILE=$HOME/.aws/credentials
 export AWS_CONFIG_FILE=$HOME/.aws/config
