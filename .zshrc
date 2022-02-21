@@ -78,7 +78,7 @@ alias cplast="history | cut -c 8- | tail -1 | copy"
 
 alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias please="sudo"
-
+alias myip="dig @ns1.google.com TXT o-o.myaddr.l.google.com +short"
 
 alias rimraf="rm -rf "
 alias du1="du -hd 1 "
@@ -87,6 +87,7 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 
 [ ! -f $HOME/.aliases ] || source $HOME/.aliases
+[ ! -f $HOME/.bash_aliases ] || source $HOME/.config/bash_aliases
 [ ! -f $HOME/.bash_aliases ] || source $HOME/.config/bash_aliases
 [ ! -f $HOME/.git_aliases ] || source $HOME/.config/git_aliases
 [ ! -f $HOME/.docker_aliases ] || source $HOME/.config/docker_aliases
