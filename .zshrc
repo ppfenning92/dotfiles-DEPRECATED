@@ -109,3 +109,7 @@ fpath+=($HOME/.zsh/completion)
 autoload -Uz compinit; compinit -i
 #[ -x "$(command -v neofetch)" ] && neofetch || echo ''
 eval "$(starship init zsh)"
+
+
+
+
