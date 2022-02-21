@@ -48,7 +48,7 @@ plugins=(
 )
 
 [ ! -f $ZSH/oh-my-zsh.sh ] || source $ZSH/oh-my-zsh.sh
-[ ! -f $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme ] || source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme
+#[ ! -f $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme ] || source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 
 function net_iface() {
