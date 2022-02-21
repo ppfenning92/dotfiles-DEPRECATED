@@ -1,72 +1,49 @@
 add_newline = true
 
-prompt_order = [
-    "username",
-    "memory_usage",
-    "hostname",
-    "kubernetes",
-    "directory",
-    "git_branch",
-    "git_commit",
-    "git_state",
-    "git_status",
-    "hg_branch",
-    "package",
-    "dotnet",
-    "elixir",
-    "elm",
-    "golang",
-    "haskell",
-    "java",
-    "nodejs",
-    "php",
-    "python",
-    "ruby",
-    "rust",
-    "terraform",
-    "nix_shell",
-    "conda",
-    "aws",
-    "env_var",
-    "crystal",
-    "line_break",
-    "battery",
-    "cmd_duration",
-    "jobs",
-    "time",
-    "character",
-]
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$package\
+$dotnet\
+$java\
+$nodejs\
+$php\
+$python\
+$ruby\
+$rust\
+$kubernetes\
+$terraform\
+$aws\
+$env_var\
+$line_break\
+$sudo\
+$cmd_duration\
+$jobs\
+$character\ 
+"""
 
-[battery]
-full_symbol = "🔋"
-charging_symbol = "⚡️"
-discharging_symbol = "💀"
+command_timeout = 700
+right_format = """$time"""
 
-[[battery.display]]
-threshold = 10
-style = "bold red"
-
-[[battery.display]]
-threshold = 60
-style = "bold yellow"
-
-[[battery.display]]
-threshold = 100
-style = "bold green"
+continuation_prompt = "▶▶ "
 
 [character]
-# symbol = "➜"
-error_symbol = "✗"
-use_symbol_for_status = true
+success_symbol = "[➜](bold green) "
+error_symbol = "[✗](bold red) "
 
 [cmd_duration]
 min_time = 500
-prefix = "tooks "
+format = "took $duration "
 
 [directory]
 truncation_length = 6
 truncate_to_repo = true
-prefix = "in "
+format = "in [$path]($style)[$read_only]($read_only_style) "
 style = "bold cyan"
 disabled = false
 
@@ -84,16 +61,20 @@ style = "bold purple"
 disabled = false
 
 [git_state]
-cherry_pick = "CHERRY PICKING"
-rebase = "REBASING"
-merge = "MERGING"
-revert = "REVERTING"
-bisect = "BISECTING"
-am = "AM"
-am_or_rebase = "AM/REBASE"
-progress_divider = " of "
-style = "bold yellow"
-disabled = false
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = "[🍒 PICKING](bold red)"
+
+# [git_state]
+# cherry_pick = "CHERRY PICKING"
+# rebase = "REBASING"
+# merge = "MERGING"
+# revert = "REVERTING"
+# bisect = "BISECTING"
+# am = "AM"
+# am_or_rebase = "AM/REBASE"
+# progress_divider = " of "
+# style = "bold yellow"
+# disabled = false
 
 # [git_status]
 # conflicted = "🏳"
@@ -110,12 +91,26 @@ disabled = false
 # renamed = "👅"
 # deleted = "🗑"
 
-# [[git_status.count]]
-# enabled = true
+[git_status]
+conflicted = "🏳"
+# ahead = "🏎💨"
+# behind = "😰"
+# diverged = "😵"
+up_to_date = "✓"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+
 
 [hostname]
-ssh_only = false
-prefix = "🤖"
+ssh_only = true
+format = "🤖 [$hostname]($style) "
 # suffix = "⟫"
 trim_at = "."
 disabled = false
@@ -136,10 +131,6 @@ disabled = false
 # separator = "/"
 # style = "bold dimmed white"
 
-[nodejs]
-symbol = "⬢ "
-style = "bold green"
-disabled = false
 
 # [package]
 # symbol = "📦 "
@@ -153,15 +144,19 @@ pyenv_prefix = "pyenv"
 style = "bold yellow"
 disabled = false
 
-# [time]
-# format = "🕙%T"
-# style_root = "bold red"
-# style_user = "bold yellow"
-# show_always = true
-# disabled = false
+[time]
+disabled = false
+format = '$time ($style)🕙'
+time_format = "%T"
+style = 'bold white'
+utc_time_offset = "-5"
+time_range = "08:00:00-17:00:00"
 
 [username]
 style_root = "bold red"
 style_user = "bold yellow"
-show_always = false
+show_always = true
+disabled = false
+
+[sudo]
 disabled = false
