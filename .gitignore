@@ -1,4 +1,4 @@
-/*
+
 !README.md
 !.gitignore
 !.gitconfig*
@@ -15,7 +15,8 @@
 !\.scripts/incV
 !\.vim
 !\.SpaceVim.d
-!.bash_aliases
-!.git_aliases
+!.config/bash_aliases
+!.config/git_aliases
+!.config/docker_aliases
 
 !.scripts/init.sh
