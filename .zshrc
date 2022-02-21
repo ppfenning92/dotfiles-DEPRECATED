@@ -88,10 +88,10 @@ alias genpass="tr -dc 'A-Za-z0-9' < /dev/urandom | head -c23 | uniq"
 
 [ ! -f $HOME/.aliases ] || source $HOME/.aliases
 
-[ ! -f $HOME/.config/aliasses/bash_aliases ] || source $HOME/.config/aliasses/bash_aliases
-[ ! -f $HOME/.config/aliasses/git_aliases ] || source $HOME/.config/aliasses/git_aliases
-[ ! -f $HOME/.config/aliasses/docker_aliases ] || source $HOME/.config/aliasses/docker_aliases
-[ ! -f $HOME/.config/aliasses/alternative_aliases ] || source $HOME/.config/aliasses/alternative_aliases
+[ ! -f $HOME/.config/alias/bash_alias ] || source $HOME/.config/alias/bash_alias
+[ ! -f $HOME/.config/alias/git_alias ] || source $HOME/.config/alias/git_alias
+[ ! -f $HOME/.config/alias/docker_alias ] || source $HOME/.config/alias/docker_alias
+[ ! -f $HOME/.config/alias/alternative_alias ] || source $HOME/.config/alias/alternative_alias
 
 export AWS_SHARED_CREDENTIALS_FILE=$HOME/.aws/credentials
 export AWS_CONFIG_FILE=$HOME/.aws/config
