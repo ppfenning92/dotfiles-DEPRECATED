@@ -16,3 +16,20 @@ if [ -x "$(command -v batcat)" ]; then
     alias cat="batcat --paging=never"
     alias catpage="batcat"
 fi
+
+if [ -x "$(command -v du-dust)" ]; then
+    alias du="dust"
+fi
+
+if [ -x "$(command -v ytop)" ]; then
+    alias htop="ytop"
+    alias top="ytop"
+fi
+
+if [ -x "$(command -v fdfind)" ]; then
+    alias fd="fdfind -H"
+fi
+
+if [ -x "$(command -v eva)" ]; then
+    alias calc="eva"
+fi

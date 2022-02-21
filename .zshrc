@@ -84,7 +84,7 @@ alias rimraf="rm -rf "
 alias du1="du -hd 1 "
 
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
+alias genpass="tr -dc 'A-Za-z0-9' < /dev/urandom | head -c23 | uniq"
 
 [ ! -f $HOME/.aliases ] || source $HOME/.aliases
 

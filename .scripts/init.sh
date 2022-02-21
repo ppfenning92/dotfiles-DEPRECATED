@@ -33,6 +33,7 @@ sudo apt install -qq -y \
     wget \
     git \
     bat \
+    fd-find \
     ansible \
     software-properties-common 
 
@@ -84,3 +85,23 @@ curl https://cache.agilebits.com/dist/1P/op/pkg/v1.12.4/op_linux_amd64_v1.12.4.z
 mkdir -vp /tmp/op && unzip op.zip -d /tmp/op
 mkdir -vp $HOME/.local/bin/ && mv /tmp/op/op $HOME/.local/bin/
 echo "1password cli installed"
+
+
+echo "installing rust/cargo"
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+echo "rust and cargo installed."
+
+echo "install rust alternatives"
+$HOME/.cargo/bin/cargo install bandwidth \
+    du-dust \
+    hyperfine \
+    ytop \
+    sd \
+    procs \
+    tealdear \
+    ripgrep \
+    eva \
+    jql
+
+
+
