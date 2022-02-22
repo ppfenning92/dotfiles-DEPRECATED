@@ -37,7 +37,6 @@ plugins=(
 	rsync
 	virtualenv
 	nmap
-	ng
 	node
 	pep8
 	profiles
