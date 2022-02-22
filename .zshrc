@@ -24,8 +24,11 @@ source $HOME/.config/zsh/plugins/zsh-completions/zsh-completions.zsh
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey '^[[A' history-substring-search-up	
-bindkey '^[[B' history-substring-search-down
+# bindkey '^[[A' history-substring-search-up	
+# bindkey '^[[B' history-substring-search-down
+
+bindkey "$key[Up]" history-substring-search-up
+bindkey "$key[Down]" history-substring-search-down
 
 HIST_STAMPS="%d%m%Y %H:%M:%S"
 
