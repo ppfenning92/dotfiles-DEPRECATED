@@ -80,7 +80,7 @@ echo "spacevim installed."
 
 echo "install 1password cli"
 curl https://cache.agilebits.com/dist/1P/op/pkg/v1.12.4/op_linux_amd64_v1.12.4.zip -o op.zip
-mkdir -vp /tmp/op && unzip op.zip -d /tmp/op
+mkdir -vp /tmp/op && unzip op.zip -d /tmp/op && rm op.zip
 mkdir -vp $HOME/.local/bin/ && mv /tmp/op/op $HOME/.local/bin/
 rm -rf /tmp/op
 echo "1password cli installed"
@@ -91,7 +91,8 @@ curl https://sh.rustup.rs -sSf | sh -s -- -y
 echo "rust and cargo installed."
 
 echo "install rust alternatives"
-$HOME/.cargo/bin/cargo install bandwidth \
+$HOME/.cargo/bin/cargo install \ 
+    bandwhich \
     du-dust \
     hyperfine \
     ytop \
