@@ -63,6 +63,9 @@ echo "cleanup done"
 echo 'Installing ZSH'
 sudo apt install zsh
 chsh -s $(which zsh)
+git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.config/zsh/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.config/zsh/plugins/zsh-syntax-highlighting
+
 echo "ZSH installed."
 
 echo 'Installing Starship Promt...'
