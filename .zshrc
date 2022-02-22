@@ -10,6 +10,14 @@ if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ] ; then
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
 
+setopt appendhistory
+setopt HIST_IGNORE_ALL_DUPS
+# some useful options (man zshoptions)
+setopt autocd extendedglob nomatch menucomplete
+setopt interactive_comments
+stty stop undef		# Disable ctrl-s to freeze terminal.
+zle_highlight=('paste:none')
+
 export HISTCONTROL=ignoreboth
 export HISTFILE=$HOME/.zsh_history
 export PATH="$HOME/.scripts:$PATH"
@@ -17,6 +25,9 @@ export ZDOTDIR="$HOME/.config/zsh"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#586e75'
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=#d33682,fg=#002b36,bold'
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=#dc322f,fg=#002b36,bold'
+export HISTORY_SUBSTRING_SEARCH_FUZZY=
+export HISTORY_SUBSTRING_SEARCH_PREFIXED=1
+export HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 
 source $HOME/.config/zsh/plugins/dotenv.plugin.zsh
 source $HOME/.config/zsh/plugins/sudo.plugin.zsh
