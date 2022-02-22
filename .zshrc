@@ -11,7 +11,7 @@ if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ] ; then
 fi
 
 export HISTCONTROL=ignoreboth
-
+export HISTFILE=$HOME/.zsh_history
 export PATH="$HOME/.scripts:$PATH"
 
 
