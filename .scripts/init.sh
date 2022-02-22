@@ -101,7 +101,7 @@ $HOME/.cargo/bin/cargo install \
     tealdeer \
     ripgrep \
     eva \
-    jql
-
+    jql \
+    broot
 
 
