@@ -14,12 +14,15 @@ export HISTCONTROL=ignoreboth
 export HISTFILE=$HOME/.zsh_history
 export PATH="$HOME/.scripts:$PATH"
 export ZDOTDIR="$HOME/.config/zsh"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#586e75'
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=#d33682,fg=#002b36,bold'
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=#dc322f,fg=#002b36,bold'
 
 source $HOME/.config/zsh/plugins/dotenv.plugin.zsh
 source $HOME/.config/zsh/plugins/sudo.plugin.zsh
+source $HOME/.config/zsh/plugins/zsh-completions/zsh-completions.zsh
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 source $HOME/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up	
 bindkey '^[[B' history-substring-search-down
