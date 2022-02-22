@@ -1,7 +1,7 @@
 add_newline = true
 
 format = """
-$username$hostname\
+$sudo$username$hostname\
 $directory$package\
 $git_branch$git_commit$git_state$git_status\
 \\[\
@@ -20,10 +20,10 @@ ${custom.myip}\
 $time\
 $jobs\
 $line_break\
-$sudo\
-$cmd_duration$status$character\ 
+$character\ 
 """
 
+right_format = """$status$cmd_duration"""
 command_timeout = 700
 
 continuation_prompt = "▶▶ "
@@ -145,7 +145,7 @@ style = 'bold white'
 style_root = "bold red"
 style_user = "bold yellow"
 show_always = false
-format = " [$user]($style) "
+format = "[$user]($style) "
 disabled = false
 
 [sudo]

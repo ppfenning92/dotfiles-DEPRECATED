@@ -17,13 +17,17 @@ setopt autocd extendedglob nomatch menucomplete
 setopt interactive_comments
 stty stop undef		# Disable ctrl-s to freeze terminal.
 zle_highlight=('paste:none')
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+_comp_options+=(globdots)	
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 export HISTCONTROL=ignoreboth
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=9999999
 export SAVEHIST=9999999
 export PATH="$HOME/.scripts:$PATH"
-export ZDOTDIR="$HOME/.config/zsh"
+#export ZDOTDIR="$HOME/.config/zsh"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#586e75'
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=#d33682,fg=#002b36,bold'
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=#dc322f,fg=#002b36,bold'
@@ -93,7 +97,7 @@ fpath+=($HOME/.config/hcloud/completion/zsh)
 fpath+=($HOME/.zsh/completion)
 
 
-autoload -Uz compinit; compinit -i
+autoload -Uz compinit; compinit -i -d $HOME/.cache
 #[ -x "$(command -v neofetch)" ] && neofetch || echo ''
 eval "$(starship init zsh)"
 
