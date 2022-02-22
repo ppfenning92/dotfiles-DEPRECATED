@@ -23,8 +23,6 @@ source $HOME/.config/zsh/plugins/zsh-syntax-highlighting.plugin.zsh
 HIST_STAMPS="%d%m%Y %H:%M:%S"
 
 
-
-
 #  aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
