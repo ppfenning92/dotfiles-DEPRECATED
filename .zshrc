@@ -44,7 +44,7 @@ bindkey "$key[Up]" history-substring-search-up
 bindkey "$key[Down]" history-substring-search-down
 
 export HIST_STAMPS="%d%m%Y %H:%M:%S"
-
+export HISTTIMEFORMAT=$HIST_STAMPS
 
 #  aliases
 alias zshconfig="vim ~/.zshrc"
