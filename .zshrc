@@ -19,7 +19,10 @@ source $HOME/.config/zsh/plugins/dotenv.plugin.zsh
 source $HOME/.config/zsh/plugins/sudo.plugin.zsh
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 source $HOME/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 HIST_STAMPS="%d%m%Y %H:%M:%S"
 
