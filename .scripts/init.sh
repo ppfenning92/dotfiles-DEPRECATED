@@ -34,7 +34,6 @@ sudo apt install -qq -y \
     git \
     bat \
     fd-find \
-    fzf \
     ansible \
     software-properties-common 
 
