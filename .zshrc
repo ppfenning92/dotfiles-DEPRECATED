@@ -20,8 +20,8 @@ zle_highlight=('paste:none')
 
 export HISTCONTROL=ignoreboth
 export HISTFILE=$HOME/.zsh_history
-HISTSIZE=
-SAVEHIST=
+HISTSIZE=9999999
+SAVEHIST=9999999
 export PATH="$HOME/.scripts:$PATH"
 export ZDOTDIR="$HOME/.config/zsh"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#586e75'
