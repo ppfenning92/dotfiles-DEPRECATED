@@ -60,16 +60,10 @@ sudo apt autoremove
 echo "cleanup done"
 
 
-echo 'Installing ZSH, oh-my-zsh'
+echo 'Installing ZSH'
 sudo apt install zsh
 chsh -s $(which zsh)
-sh -c “$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)”
-
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-echo "ZSH with oh-my-zsh installed."
+echo "ZSH installed."
 
 echo 'Installing Starship Promt...'
 sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y > /dev/null
@@ -84,6 +78,7 @@ echo "install 1password cli"
 curl https://cache.agilebits.com/dist/1P/op/pkg/v1.12.4/op_linux_amd64_v1.12.4.zip -o op.zip
 mkdir -vp /tmp/op && unzip op.zip -d /tmp/op
 mkdir -vp $HOME/.local/bin/ && mv /tmp/op/op $HOME/.local/bin/
+rm -rf /tmp/op
 echo "1password cli installed"
 
 

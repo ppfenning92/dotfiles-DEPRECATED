@@ -9,58 +9,18 @@ fi
 if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ] ; then
     eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
 
 export HISTCONTROL=ignoreboth
 
-export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$HOME/.scripts:$PATH"
 
 
+source $HOME/.config/zsh.plugins/dotenv.plugin.zsh
+source $HOME/.config/zsh.plugins/sudo.plugin.zsh
+source $HOME/.config/zsh.plugins/zsh-autosuggestions.plugin.zsh
+source $HOME/.config/zsh.plugins/zsh-syntax-highlighting.plugin.zsh
+
 HIST_STAMPS="%d%m%Y %H:%M:%S"
-
-plugins=(
-	1password
-	ansible
-	git
-	dotenv
-	jsontools
-	python
-	sudo
-	systemd
-	wd
-	web-search
-	docker
-	docker-compose
-	pipenv
-	rsync
-	virtualenv
-	nmap
-	node
-	pep8
-	profiles
-	zsh-syntax-highlighting
-	zsh-autosuggestions
-	nvm
-  	wakatime
-)
-
-[ ! -f $ZSH/oh-my-zsh.sh ] || source $ZSH/oh-my-zsh.sh
-#[ ! -f $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme ] || source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme
-
-
-function net_iface() {
-	local adapter=$(nmcli device status | grep -F connected | grep -Fv disconnected | head -1 | awk '{print $2}')
-      if [[ adapter -eq "ethernet" ]]; then
-              echo $'\uf700'
-      elif [[ adapter -eq "wifi" ]]; then
-              echo $' \uf1eb '
-      else
-              echo $' \uf818 '
-      fi
-}
-
 
 
 #  aliases
