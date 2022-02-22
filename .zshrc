@@ -20,6 +20,8 @@ zle_highlight=('paste:none')
 
 export HISTCONTROL=ignoreboth
 export HISTFILE=$HOME/.zsh_history
+HISTSIZE=
+SAVEHIST=
 export PATH="$HOME/.scripts:$PATH"
 export ZDOTDIR="$HOME/.config/zsh"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#586e75'
@@ -41,7 +43,7 @@ bindkey '^[[B' history-substring-search-down
 bindkey "$key[Up]" history-substring-search-up
 bindkey "$key[Down]" history-substring-search-down
 
-HIST_STAMPS="%d%m%Y %H:%M:%S"
+export HIST_STAMPS="%d%m%Y %H:%M:%S"
 
 
 #  aliases
