@@ -91,8 +91,7 @@ curl https://sh.rustup.rs -sSf | sh -s -- -y
 echo "rust and cargo installed."
 
 echo "install rust alternatives"
-$HOME/.cargo/bin/cargo install \ 
-    bandwhich \
+$HOME/.cargo/bin/cargo install bandwhich \
     du-dust \
     hyperfine \
     ytop \
