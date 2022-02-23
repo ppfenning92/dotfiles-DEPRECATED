@@ -3,7 +3,7 @@ add_newline = true
 format = """
 $sudo$username$hostname\
 $directory$package\
-$git_branch$git_commit$git_state$git_status\
+$git_branch$git_commit$git_metrics$git_state$git_status\
 \\[\
 $nodejs\
 $php\
@@ -51,6 +51,9 @@ home_symbol = ""
 # default = "Zsh"
 # prefix = "<"
 # suffix = ">"
+
+[git_metrics]
+disabled = false 
 
 [git_branch]
 symbol = "🌱 "
