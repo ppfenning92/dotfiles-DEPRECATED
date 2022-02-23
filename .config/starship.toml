@@ -140,7 +140,7 @@ format = "[$symbol($version )]($style)"
 
 [time]
 disabled = false
-format = '🕙$time($style)'
+format = '🕙$time($style) '
 time_format = "%T"
 style = 'bold white'
 #utc_time_offset = "-5"
