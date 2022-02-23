@@ -53,7 +53,6 @@ export HIST_STAMPS="%d%m%Y %H:%M:%S"
 export HISTTIMEFORMAT=$HIST_STAMPS
 
 alias myip="dig @ns1.google.com TXT o-o.myaddr.l.google.com +short"
-
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias genpass="tr -dc 'A-Za-z0-9' < /dev/urandom | head -c23 | uniq"
 
