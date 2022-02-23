@@ -83,3 +83,9 @@ autoload -Uz compinit; compinit -i -d $HOME/.cache
 eval "$(starship init zsh)"
 
 
+
+
+
+
+
+# end
