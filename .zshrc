@@ -6,8 +6,8 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ] ; then
-    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+if [ -f "/opt/homebrew/bin/brew" ] ; then
+    eval $(s/opt/homebrew/bin/brew/bin/brew shellenv)
 fi
 
 setopt appendhistory
