@@ -1,3 +1,6 @@
 [user]
-	email = patrick.pfenning@ottonova.de
-	name = Patrick Pfenning
+email = patrick.pfenning@ottonova.de
+name = Patrick Pfenning
+
+[pull]
+ff = only

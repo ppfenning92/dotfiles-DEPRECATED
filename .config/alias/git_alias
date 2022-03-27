@@ -10,6 +10,9 @@ git_version="${${(As: :)$(git version 2>/dev/null)}[3]}"
 # Back-compatibility wrapper for when this function was defined here in
 # the plugin, before being pulled in to core lib/git.zsh as git_current_branch()
 # to fix the core -> git plugin dependency.
+function git_current_branch() {
+  git rev-parse --abbrev-ref HEAD
+}
 function current_branch() {
   git_current_branch
 }
@@ -112,7 +115,7 @@ alias gcmsg='git commit -m'
 alias gco='git checkout'
 alias gcor='git checkout --recurse-submodules'
 alias gcount='git shortlog -sn'
-alias gcp='git cherry-pick'
+#alias gcp='git cherry-pick'
 alias gcpa='git cherry-pick --abort'
 alias gcpc='git cherry-pick --continue'
 alias gcs='git commit -S'
