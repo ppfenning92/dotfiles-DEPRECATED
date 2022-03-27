@@ -26,14 +26,11 @@ sudo apt install -qq -y \
     vim \
     nmap \
     tree \
-    exa \
     curl \
     hcloud-cli \
     nmap \
     wget \
     git \
-    bat \
-    fd-find \
     ansible \
     software-properties-common 
 
@@ -50,7 +47,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-nvm install node
+nvm install node --lts
 nvm use node
 npm i -g tldr sass @nestjs/cli @angular/cli npm-check-updates typescript license-checker 
 echo "nvm installed"
@@ -72,6 +69,7 @@ echo "ZSH installed."
 echo 'Installing Starship Promt...'
 sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y > /dev/null
 mkdir -p ~/.config && touch ~/.config/starship.toml
+rm -rf ~/.cache && mkdir ~/.cache/starship
 echo 'Starship installed.'
 
 echo "install spacevim..."
@@ -99,7 +97,9 @@ $HOME/.cargo/bin/cargo install bandwhich \
     procs \
     tealdeer \
     ripgrep \
+    fd-find \
     eva \
+    bat \
     jql \
     broot
 
