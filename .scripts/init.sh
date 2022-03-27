@@ -98,7 +98,7 @@ $HOME/.cargo/bin/cargo install bandwhich \
     tealdeer \
     ripgrep \
     fd-find \
-    eva \
+    exa \
     bat \
     jql \
     broot
